@@ -24,7 +24,7 @@ export default class InitialWorld extends World {
     await heart.init();
 
     const elf = new Elf();
-    elf.init();
+    await elf.init();
     this.objectsToUpdate.push(elf);
 
     const sphere = new MySphere();

@@ -1,5 +1,4 @@
 /* eslint-disable class-methods-use-this */
-import * as THREE from 'three';
 
 export default class Actor {
   constructor() {
@@ -27,13 +26,13 @@ export default class Actor {
         .setLoop(THREE.LoopRepeat, 4);
       */
 
+    // this.animation.mixer = new THREE.AnimationMixer(this.model);
+
     /**
      * this.animation.actions.current = this.animation.actions.idle;
      * this.animation.mixer.addEventListener('loop', e => {
      * this.animation.mixer.addEventListener('finished', e => {
      */
-
-    this.animation.mixer = new THREE.AnimationMixer(this.model);
 
     this.animation.play = name => {
       const newAction = this.animation.actions[name];

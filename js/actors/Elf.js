@@ -24,7 +24,7 @@ export default class Elf extends Actor {
     }
     this.model = mymodel;
 
-    const animations = [
+    this.animations = [
       ...elfData.animations,
       ...oneData.animations,
       ...twoData.animations,
@@ -32,28 +32,24 @@ export default class Elf extends Actor {
       ...fourData.animations,
     ];
 
-    // this.animation.mixer = new THREE.AnimationMixer(this.model);
+    this.animation.mixer = new THREE.AnimationMixer(this.model);
 
     this.animation.actions = {};
 
-    console.log(this.animation);
-    console.log(animations[0]);
-
-    this.animation.actions.idle = this.animation.mixer.clipAction(
-      animations[0]
-    );
-    // .setLoop(THREE.LoopRepeat, 4);
+    this.animation.actions.idle = this.animation.mixer
+      .clipAction(this.animations[0])
+      .setLoop(THREE.LoopRepeat, 4);
     this.animation.actions.one = this.animation.mixer
-      .clipAction(animations[1])
+      .clipAction(this.animations[1])
       .setLoop(THREE.LoopOnce, 1);
     this.animation.actions.two = this.animation.mixer
-      .clipAction(animations[2])
+      .clipAction(this.animations[2])
       .setLoop(THREE.LoopOnce, 1);
     this.animation.actions.three = this.animation.mixer
-      .clipAction(animations[3])
+      .clipAction(this.animations[3])
       .setLoop(THREE.LoopOnce, 1);
     this.animation.actions.four = this.animation.mixer
-      .clipAction(animations[4])
+      .clipAction(this.animations[4])
       .setLoop(THREE.LoopOnce, 1);
 
     this.animation.actions.current = this.animation.actions.idle;
