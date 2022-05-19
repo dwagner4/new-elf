@@ -96,7 +96,7 @@ export default class Stage {
     this.controls?.update(this.time.delta);
 
     this.physWorld?.step(1 / 60, this.time.delta, 3);
-    this.world?.update();
+    this.world?.update(this.time);
 
     // not needed with post processing
     this.renderer.render(this.scene, this.camera);

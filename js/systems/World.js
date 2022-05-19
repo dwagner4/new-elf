@@ -12,10 +12,10 @@ export default class world {
     this.workingVector = new THREE.Vector3();
   }
 
-  update() {
+  update(time) {
     for (const object of this.objectsToUpdate) {
       if (object.update) {
-        object.update();
+        object.update(time);
       }
     }
   }

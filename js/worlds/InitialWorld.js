@@ -3,6 +3,7 @@ import World from '../systems/World.js';
 
 import HeartScenery from '../scenery/HeartScenery.js';
 import Heart from '../actors/Heart.js';
+import Elf from '../actors/Elf.js';
 import MySphere from '../props/MySphere.js';
 
 export default class InitialWorld extends World {
@@ -22,17 +23,21 @@ export default class InitialWorld extends World {
     const heart = new Heart();
     await heart.init();
 
+    const elf = new Elf();
+    elf.init();
+    this.objectsToUpdate.push(elf);
+
     const sphere = new MySphere();
     await sphere.init();
     sphere.model.position.x += 1;
     sphere.model.position.y += -0.75;
     sphere.model.castShadow = true;
 
-    this.stage.scene.add(sphere.model, heart.model);
+    this.stage.scene.add(sphere.model, heart.model, elf.model);
   }
 
-  update() {
-    super.update();
+  update(time) {
+    super.update(time);
   }
 
   dispose() {

@@ -55,8 +55,8 @@ export default class Actor {
 
   setBody() {}
 
-  update() {
-    this.animation.mixer?.update(this.stage.time.delta * 0.001);
+  update(time) {
+    this.animation.mixer?.update(time.delta * 0.001);
   }
 
   dispose() {}
