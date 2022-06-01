@@ -21,7 +21,7 @@ export default class HeartScenery extends Scenery {
     });
     this.plane = new THREE.Mesh(geometry, material);
     this.plane.rotateX(-Math.PI / 2);
-    this.plane.translateZ(-1);
+    // this.plane.translateZ(-1);
     this.plane.receiveShadow = true;
   }
 }
